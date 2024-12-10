@@ -16,5 +16,5 @@ if not os.path.exists(instance_path):
 
 # app.config['SQLALCHEMY_DATABASE_URI'] ='sqlite:///market.db'
 db = SQLAlchemy(app)
-
+app.config['SECRET_KEY'] ='fb66252f3ca50d1173683580'
 from market import routes
