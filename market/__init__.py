@@ -1,7 +1,7 @@
-from flask import Flask, render_template
+from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 import os
-
+from flask_bcrypt import Bcrypt
 app = Flask(__name__)
 
 # Get the absolute path to the 'market/instance' directory
@@ -15,6 +15,10 @@ if not os.path.exists(instance_path):
     os.makedirs(instance_path)
 
 # app.config['SQLALCHEMY_DATABASE_URI'] ='sqlite:///market.db'
-db = SQLAlchemy(app)
+
 app.config['SECRET_KEY'] ='fb66252f3ca50d1173683580'
+
+db = SQLAlchemy(app)
+
+bcrypt = Bcrypt(app)
 from market import routes
