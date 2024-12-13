@@ -2,6 +2,7 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 import os
 from flask_bcrypt import Bcrypt
+from flask_login import LoginManager
 app = Flask(__name__)
 
 # Get the absolute path to the 'market/instance' directory
@@ -21,4 +22,5 @@ app.config['SECRET_KEY'] ='fb66252f3ca50d1173683580'
 db = SQLAlchemy(app)
 
 bcrypt = Bcrypt(app)
+login_manager = LoginManager(app)
 from market import routes
